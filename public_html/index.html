@@ -3,24 +3,23 @@
     <head>
         <title>My Angular Application</title>
         <link rel="stylesheet" href="css/style.css">
-
-        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-
         <script src="js/script.js"></script>
-        <script src="js/hello.js"></script>
     </head>
-    <body>
-        <div id="status"></div>
+    <body ng-controller="MainController">
+        <div id="status">
+            {{error}}
+        </div>
 
         <h1>My Angular Application</h1>
-        <div ng-controller="MainController">
-            {{message}}
+        <div>
+            Name: {{user.name}}
         </div>
-        <script>
-            var person = new Person("John");
-            var message = greeter(person);
-            $("#status")[0].innerHTML = message;
-        </script>
+        <div>
+            Location: {{user.location}}
+        </div>
+        <div>
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+        </div>
     </body>
 </html>
