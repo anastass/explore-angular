@@ -1,7 +1,8 @@
 (function () {
     var app = angular.module("app", []);
 
-    var MainController = function ($scope, $http, $interval, $log) {
+    var MainController = function ($scope, $http, $interval,
+            $log, $anchorScroll, $location) {
 
         var onUserComplete = function (response) {
             $scope.user = response.data;
@@ -11,6 +12,8 @@
 
         var onRepos = function (response) {
             $scope.repos = response.data;
+            $location.hash("userDetails");
+            $anchorScroll();
         };
 
         var onError = function (reason) {
@@ -21,12 +24,14 @@
             $scope.countdown -= 1;
             if ($scope.countdown < 1) {
                 $scope.search($scope.username);
-            };
+            }
+            ;
         };
 
         var countdownInterval = null;
         var startCountdown = function () {
-            countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
+            countdownInterval = $interval(decrementCountdown, 1000,
+                    $scope.countdown);
         };
 
         $scope.search = function (username) {
@@ -37,7 +42,8 @@
             if (countdownInterval) {
                 $interval.cancel(countdownInterval);
                 $scope.countdown = null;
-            };
+            }
+            ;
         };
 
         $scope.username = "angular";
@@ -45,7 +51,8 @@
         $scope.repoSortOrder = "-stargazers_count";
         $scope.countdown = 5;
         startCountdown();
-    };
+    }
+    ;
 
     app.controller("MainController", MainController);
 }());
