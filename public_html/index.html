@@ -7,19 +7,37 @@
         <script src="js/script.js"></script>
     </head>
     <body ng-controller="MainController">
+        <h1>{{message}}</h1>
+
         <div id="status">
             {{error}}
         </div>
 
-        <h1>My Angular Application</h1>
-        <div>
-            Name: {{user.name}}
-        </div>
-        <div>
-            Location: {{user.location}}
-        </div>
-        <div>
-            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" />
+        <form name="searchUser">
+            <input type="search" required placeholder="Username to find" ng-model="username" /> 
+            <input type="submit" value="Search" ng-click="search(username)" /> 
+        </form>
+
+        <div ng-show="user">
+            <h2>Name: {{user.name}}</h2>
+            <img ng-src="{{user.avatar_url}}" title="{{user.name}}" height="100" width="100" />
+
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stars</th>
+                        <th>Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="repo in repos">
+                        <td>{{repo.name}}</td>
+                        <td>{{repo.stargazers_count}}</td>
+                        <td>{{repo.language}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

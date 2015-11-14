@@ -1,4 +1,2 @@
-#status {
-    background-color: #ff0000;
-    color: #ffffff;
-}
+@import "coffee-with-milk.css";
+@import "custom.css";
