@@ -18,39 +18,7 @@
             <input type="submit" value="Search" /> 
         </form>
 
-        <div ng-show="user">
-            <article>
-                <h2>Name: {{user.name}}</h2>
-                <img ng-src="{{user.avatar_url}}" title="{{user.name}}" height="100" width="100" />
-            </article>
-
-            <article>
-                Order:
-                <select ng-model="repoSortOrder">
-                    <option value="+name">Name</option>
-                    <option value="-stargazers_count">Stars</option>
-                    <option value="+language">Language</option>
-                </select>
-            </article>
-
-            <article>
-                <table> 
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Stars</th>
-                            <th>Language</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="repo in repos| orderBy:repoSortOrder">
-                            <td>{{repo.name}}</td>
-                            <td>{{repo.stargazers_count| number}}</td>
-                            <td>{{repo.language}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
+        <div ng-include="'userdetails.html'" ng-show="user">
         </div>
     </body>
 </html>

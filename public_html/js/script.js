@@ -25,7 +25,7 @@
         
         $scope.username = "angular";
         $scope.message = "GitHub Viewer";
-        $scope.repoSortOrder = "";
+        $scope.repoSortOrder = "-stargazers_count";
     };
     
     app.controller("MainController", ["$scope", "$http", MainController]);
