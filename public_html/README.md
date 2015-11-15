@@ -12,3 +12,19 @@ GitHub introduced API changes:
 - [Stream handbook](https://github.com/substack/stream-handbook)
 
 Ref. https://github.com/johnpapa/pluralsight-gulp
+
+
+## Tips
+### Git
+    # show tags
+    git tag -l -n 
+
+    # delete tag
+    git tag -d <tag>
+
+    # reverse last commit without loosing changes
+    git reset --soft <hash>
+
+    # reverse last commit and delete changes
+    git reset --hard <hash>
+
